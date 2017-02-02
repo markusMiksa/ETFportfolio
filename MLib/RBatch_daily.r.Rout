@@ -1,0 +1,29 @@
+
+R version 2.14.1 (2011-12-22)
+Copyright (C) 2011 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i386-pc-mingw32/i386 (32-bit)
+
+R ist freie Software und kommt OHNE JEGLICHE GARANTIE.
+Sie sind eingeladen, es unter bestimmten Bedingungen weiter zu verbreiten.
+Tippen Sie 'license()' or 'licence()' für Details dazu.
+
+R ist ein Gemeinschaftsprojekt mit vielen Beitragenden.
+Tippen Sie 'contributors()' für mehr Information und 'citation()',
+um zu erfahren, wie R oder R packages in Publikationen zitiert werden können.
+
+Tippen Sie 'demo()' für einige Demos, 'help()' für on-line Hilfe, oder
+'help.start()' für eine HTML Browserschnittstelle zur Hilfe.
+Tippen Sie 'q()', um R zu verlassen.
+
+> 
+> print("run code at email.r")
+[1] "run code at email.r"
+> source("MLib/email.r")
+Fehler in file(filename, "r", encoding = encoding) : 
+  kann Verbindung nicht öffnen
+Calls: source -> file
+Zusätzlich: Warnmeldung:
+In file(filename, "r", encoding = encoding) :
+  kann Datei 'MLib/email.r' nicht öffnen: No such file or directory
+Ausführung angehalten

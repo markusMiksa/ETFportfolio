@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>EM4b.r</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<!-- Automatically generated by RStudio [12861c30b10411e1afa60800200c9a66] -->
+
+<h3>EM4b.r</h3>
+
+<p>markus &mdash; <em>Dec 14, 2013, 8:16 PM</em></p>
+
+<pre><code class="r">################################################################################################################
+# 2013-11-28 
+#Lade Eckhards e4  xls daten  nach xts pro sheet 
+
+###########################################################################################....................................... Experimente definieren ..........................
+if (F)
+  run.main()
+
+
+run.main&lt;-function ()
+{
+  prepare.EM4B.data(file=&quot;em4b.data&quot;, do.load=T,do.par=F, mkTrain=T,visual=F)
+  #  ,            techbuilder.symbols=colnames(data$prices)       )
+  #if (F)
+  #   save(data,file=&quot;em4b.data&quot;)
+  experiment=define.experiments()
+
+  k=paste(colnames(data$multiTarget[[1]]),collapse=&quot;, &quot;)
+  if (F)
+  {
+    TrainRun_EM4B(Experi=experiment$TEST , do.par=F)
+    TrainRun_EM4B(Experi=experiment$TEST , do.par=T)
+    TrainRun_EM4B(Experi=experiment$TEST , do.par=T)
+    TrainRun_EM4B(Experi=experiment$macro.select , do.par=T)
+  }
+  TrainRun_EM4B(Experi=experiment$macro.select.m , do.par=T)
+
+  data$train.best=auswertung(Experi=experiment$macro.select.m) 
+
+  # als Vektor gehts hier in die monatliche Gewichtsberechnung
+
+  r=data$prices
+  r=m.to.monthly(r)
+
+  r=foreach(col = colnames(data$prices),.combine=&quot;merge&quot;) %do%
+{
+  Col = r[,col]; diff(log(Col))
+}
+  r=r[experiment$macro.select.m$backtest.frame]
+  purePlot(mLogRendite(r))
+  #m.tslars(r)
+  weights= rollGenSA.Portfolio(r,win=3,mode =&quot;maxcalmar&quot;)  ### &lt;&lt; test.me
+
+  turnover.1=weights[,1];turnover.1[]=NA;
+  turnover.1[]=(rowSums(abs(weights-lag(weights))))
+  apply.yearly(turnover.1, FUN=sum)*100
+
+}
+#............. 
+#  Trainingszenarien vorbereiten
+# A)Target(-1)
+# 0) retrain_on = &quot;monthly&quot;
+
+# CloudSet:
+# aa) nur
+# a) nur tech.cloud(sym)
+# b) tech.cloud(sym)+small.cloud(intermarket)
+# c) tech.cloud(sym)+small.cloud(fundamental)
+# d) tech.cloud(sym)+small.cloud(intermarket)+small.cloud(fundamental)
+# e) tech.cloud(sym)+tech.cloud(intermarket)+small.cloud(fundamental)
+
+# Variablen-Identifikation, Timing + Selektion
+
+# B) Target(-1)+Target(smooth)+Target(-1,short)
+# 0) retrain_on = &quot;monthly&quot;
+# Bestes CloudSet aus A)
+define.experiments&lt;-function()
+{
+  experiment=list(
+    TEST= list(
+      path=&quot;TEST&quot;,
+      symbolnames=&quot;EXX50_RI&quot;,   #data$BENCH,
+      backtest.frame=&quot;::2003-05-31&quot;,
+      Target.fn= select.multiTarget.sum,
+      train.data=data$test.cloud,
+      retrain.on= &quot;yearly&quot;,
+      par=list()
+    ),
+
+    macro.select= list(
+      path=&quot;EM4_DEC.1&quot;,
+      symbolnames=&quot;EXX50_RI&quot;,   #data$BENCH,
+      backtest.frame=&quot;::2013-05-31&quot;,
+      Target.fn= select.multiTarget.sum,
+      train.data=data$cloud.mac,
+      retrain.on= &quot;quaterly&quot;,
+      par=list()
+    ),
+
+    macro.select.m= list(
+      path=&quot;EM4_DEC.1&quot;,
+      symbolnames=&quot;EXX50_RI&quot;,   #data$BENCH,
+      backtest.frame=&quot;2007-01-01::2013-05-31&quot;,
+      Target.fn= select.multiTarget.sum,
+      train.data=data$cloud.mac,
+      retrain.on= &quot;monthly&quot;,
+      par=list(),
+      INFO=c(&quot; &quot;,&quot;select.multiTarget.sum =&gt;&quot;, paste(names(data$multiTarget),collapse=&quot;, &quot;),            &quot;Target =&gt;&quot;,paste(colnames(data$multiTarget[[1]]),collapse=&quot;, &quot;),
+             &quot;train.data =&gt;&quot;,&quot; &quot;,paste(as.character(dim(data$cloud.mac)),collapse=&quot; : &quot;)
+             ,&quot; &quot;, paste(colnames(data$cloud.mac),collapse=&quot;, &quot;))
+    ),
+
+    macro.select.m2= list(
+      path=&quot;EM4_DEC.1&quot;,
+      symbolnames=&quot;EXX50_RI&quot;,   #data$BENCH,
+      backtest.frame=&quot;2005-01-01::2013-05-31&quot;,
+      Target.fn= select.multiTarget.sum,
+      train.data=data$cloud.mac,
+      retrain.on= &quot;monthly&quot;,
+      info=&quot;cloud.mac on&quot;,
+      par=list()
+    ),
+
+    justTech.m= list(
+      path=&quot;EM4_DEC.1&quot;,
+      symbolnames=&quot;EXX50_RI&quot;,   #data$BENCH,
+      backtest.frame=&quot;::2013-05-31&quot;,
+      Target.fn= select.multiTarget.sum,
+      train.data=get.techCloud,
+      retrain.on= &quot;monthly&quot;,
+      par=list()
+    )
+  )
+}
+#Tagesdaten oder wochen daten ? -&gt; winlen im cloud-maker anppassen 
+#tagesdaten -&gt; sind die indikatore  fÃ¼r die preise schnell ?
+#auswerten mit signal oder mit non-lin-optimierer
+prepare.EM4B.data &lt;-function(file=&quot;em4b.data&quot;, do.load=T,do.par=T,mkTrain=T,techbuilder.symbols=c(),visual=F)
+{
+  if (do.load)
+  {
+    mP(&quot;load data from %s&quot;,file)
+
+    local({
+      load(file=file)     #sichern falls er crashed
+      print(ls(data))
+      data&lt;&lt;-data
+      global_StartDate
+      define.Globals(ver=1)
+    })
+    if (do.par)
+      prepare_Parallel()
+    return(&quot;ok&quot;)
+  }
+  data &lt;&lt;-make_eckhard4B_data(visual=visual,bench=&quot;EXX50_RI&quot;,do.par=do.par,mkTrain=F)
+  cloud.check(data$prices)
+  #MMDATA
+  #monats-daten:  die macros 
+  data$macros = na.omit(merge(data$macros,data$prices))  #wir nehmen noch die euro.indizes als speudo-macros mit auf .. wer wei?
+  cloud.check(data$macros)
+
+  #MMCLOUD  
+  #aus den folgenden Bausteinen bau ich mir spaeter meine sym-individuelle datacloud
+  #macro-cloud berechen  - bei visual = T wird auch jeder variablenblock ge cloud.checked() !!
+
+  #auf tagesbasis
+  data$cloud.mac &lt;- cloud.mac &lt;&lt;- small.cloud(data$macros,visual=F,cloud.control= list(get.Quantile.M=F)) 
+  #small-cloud fÃ¼r mac incls preise
+  #passt die cloud QualitÃ¤t ?  
+  cloud.check(cloud.mac)
+  data$test.cloud  &lt;-test.cloud &lt;&lt;- micro.cloud(data$prices,visual=F,cloud.control= list()) 
+  cloud.check(test.cloud)
+
+  if (F&amp;&amp;visual)
+  {
+    k=plotSigPrice(signal=sign(target),prices=data$prices[,data$BENCH])
+    mPlots(k,data$prices[,data$BENCH],merge((target),0))
+  }
+
+  #### baue die multiTargets:
+  #NOTWENDIG
+  if (do.par ) prepare_Parallel() 
+
+  #Baue in   data-&gt;tech.cloud[[sym]]  die sehr aufwÃ¤ndige tech-cloud   fÃ¼r das zu prognostizierende objekt
+  if (len(techbuilder.symbols) &gt; 0)
+    tech.cloud.builder(techbuilder.symbols,tech.Cloud.Fn= &quot;tech.Cloud&quot;, data,visual=F,cloud.control=spl(&quot;heavy,lagged&quot;),do.par=do.par)
+
+  #gem. unterschiedlichen zeitlichen auflÃ¶sungen und mehtoden targets bauen
+  if (mkTrain)
+    data$multiTarget &lt;-  multiTarget(visual=visual) #das target eines symbols bekommst Du mit mt=select.multiTarget.sum(data, sym) oder mt=select.multiTarget (data, sym)
+  #data$target=select.multiTarget.sum(data,data$BENCH)
+
+  ls(data$multiTarget)
+  #passt die target QualitÃ¤t ?
+  lapply(data$multiTarget ,cloud.check)
+  #..................................................................................&lt;&lt;
+
+  save(data,file=file)     #sichern falls er crashed
+
+  if (do.par)
+  {
+    mP(&quot;sfExport data&quot;)
+    sfExport(&quot;data&quot;)
+  }
+}
+
+
+#######################################################################################
+options(error = quote({
+  #  sink(file=&quot;error.txt&quot;);
+  dump.frames();
+  print(attr(last.dump,&quot;error.message&quot;));
+  traceback();
+  #  sink(); 
+})) 
+options(warn=1)
+################################################################################################################
+
+
+if (F)
+{
+  #einlesen von xls -sheets in xts- variable
+  exx50.all= read.EckhardsXLS(modelDir=&quot;EM4_DEC.1&quot;, xlsName=&quot;Data0E.xls&quot;,startRow=5,belowColnames=5, date.format = &quot;%d.%m.%Y&quot;,to.month.end=F,debug=F)  
+
+
+  if (F)  #ist viel Schrott in den Spalten ?
+  {
+    colSums(diff(exx50.all[&quot;1997::&quot;],30),na.rm=T)
+    colSums(exx50.all[&quot;1997::&quot;],na.rm=T)
+  }
+
+  dim(exx50.all)  #4392 Tage mit 39 Spalten
+  #enhÃ¤lt folgende 3 logischen Gruppen
+  exx50=exx50.all[,1]
+  fundamentale.faktoren= exx50.all[,c(2:25)]
+  intermarket.faktoren = exx50.all[,c(26:ncol(exx50.all))]
+
+  colnames(exx50)
+  colnames(fundamentale.faktoren)
+  colnames(intermarket.faktoren)
+
+  exx50.n =mNorm(exx50)[&quot;1997::&quot;]
+  #Die Fundamentalfaktoren haben einen time lag von 20 Tagen, die Inter-Market Faktoren haben keinen time lag. 
+  fundamentale.faktoren.n= mNorm(lag(fundamentale.faktoren,20))[&quot;1997::&quot;] #hier schon mal gelagged weil die Teile ja einen Monat Lieferversp?tung haben
+  #head(merge(fundamentale.faktoren[,1],fundamentale.faktoren.n[,1]),30)
+  intermarket.faktoren = mNorm(intermarket.faktoren)[&quot;1997::&quot;] #wichtig:  die Anfangslag normiert die (fr?hen) Werte
+
+  #spannende analysen
+  if (F)
+  {
+
+    pdf(file = &#39;Models/EM4_DEC.1/correlations.pdf&#39;, width=8.5, height=11)
+
+    purePlot(fundamentale.faktoren.n,main=&quot;fundamentale.faktoren.n&quot;)
+    purePlot(intermarket.faktoren,main=&quot;intermarket.faktoren&quot;)
+
+    correlogramm(ROC(merge(exx50,intermarket.faktoren)[&quot;1997::&quot;],30),main=&quot; intermarket.faktoren&quot;)
+    correlogramm(ROC(merge(exx50,fundamentale.faktoren)[&quot;1997::&quot;],30),main=&quot; fundamentale.faktoren&quot;)
+
+    chart.Correlation(ROC(intermarket.faktoren[&quot;1997::2000&quot;],1),main=&quot;iF 1997::2000&quot;)
+    chart.Correlation(ROC(intermarket.faktoren[&quot;2008::2011&quot;],1),main=&quot;iF 2008::2011&quot;)
+    chart.Correlation(ROC(intermarket.faktoren[&quot;2010::2014&quot;],1),main=&quot;iF 2010::2014&quot;) 
+    chart.Correlation(ROC(intermarket.faktoren[&quot;2010::2014&quot;],30),main=&quot;iF 2010::2014&quot;) 
+
+    chart.Correlation(ROC(fundamentale.faktoren[&quot;1997::2000&quot;],1),main=&quot;fF 1997::2000&quot;)
+    chart.Correlation(ROC(fundamentale.faktoren[&quot;2008::2011&quot;],1),main=&quot;fF 2008::2011&quot;)
+    chart.Correlation(ROC(fundamentale.faktoren[&quot;2010::2014&quot;],1),main=&quot;fF 2010::2014&quot;) 
+    chart.Correlation(ROC(fundamentale.faktoren[&quot;2010::2014&quot;],30),main=&quot;fF 2010::2014&quot;) 
+
+
+
+    dev.off()  
+
+  }
+
+  TSA.prepPro.e4B(visual=F,bench=&quot;EXX50_RI&quot;,do.par =T)
+
+}
+#ein virtuelles data-env vorbereiten - damit das SIT-Framework laufen kann
+
+#data &lt;- make.data(euro.indi,mkTrain=T)
+#rattle()
+
+#eine multi-Target-DataCloud vorbereiten  .. einige technische Indikatoren auf indizes und macros 
+#ROC, p-SMA200
+#..................................................................................................&lt;&lt;
+get.techCloud &lt;-function(data,sym)
+{
+  data$tech.cloud[[sym]]
+}
+
+###############################################################################
+#macros (monatlich) und indizes(t?glich) einladen
+#eine tagesbasierte tech.cloud   (dataCloud.e4) f?r jeden Index berechnen
+#die targets pro symbol berechnen
+#zu den macros die indizes als pseudo-macros monatlich beimischen
+#die monats basierte small.cloud() berechnen
+#eine gro0e  all.cloud als data$train.data  berechnen - dazu 
+#zu der tech.cloud die macro-cloud beimischen  und mit m.ifna.prev die monatsdaten auff?llen
+# - zu jedem symbol gibts nun als trainings-daten die breite  all.cloud mit
+# macros - indizes,  5 features dazu - und die tech.cloud (70 feature auf Tagesbasis)
+
+#signal.randomForest.e4() berechnet damit Signale - indem der in festen Intervallen -
+#z.B retrain.on=&quot;quarterly&quot; - den random.forrest-classifier des jeweiligen index-symbols  neu trainiert.
+# auf Tagesbasis gibt signal.randomForest.e4() dann  A) all.sig-Einsch?tzungen mit den 3 Merkmalen
+#signal, model.err, confidence  und B) auf monats.basis:   model.err + forest.fit.wichtigkeit
+#forest.fit.wichtigkeit ist dabei ein xts welches f?r jeden Trainingstag die Wichtigkeit aller features notiert.
+###############################################################################
+TSA.prepPro.e4B&lt;-function(visual=T,bench=&quot;DAX30&quot;,do.par=T)
+{
+
+  if(F)
+  {
+    visual=T;bench=&quot;EXX50_RI&quot;;do.par=T
+  }
+  #..................................................................................................&gt;&gt;
+
+  #daten einlesen, target-data berechnen und data-environment und global_arg vorbereiten - auch sfExport()
+  data &lt;-make_eckhard4B_data(visual=visual,bench=bench,do.par=do.par)
+  #cloud-bildung parametrisieren
+  #paralle vorbereiten
+
+  #do.par=T
+  if (do.par)  #nur in der Entwicklungsphase hilfreich...
+  {
+    prepare_Parallel() 
+
+    sfSource(&quot;MLib/EM4B.R&quot;)
+    sfSource(&quot;MLib/InputConfig_Portfolio_TD.R&quot;)
+    sfSource(&quot;MLib/classifier_randomForest.r&quot;)
+    sfExport(&quot;data&quot;)  ### muss erst der ifo- geladen werden ?
+    sfExport(&quot;cloud.control&quot;)
+  }
+
+  sfExport(&quot;data&quot;)  ### muss erst der ifo- geladen werden ?
+  sfExport(&quot;cloud.control&quot;)
+
+  #datacloud berechnen
+  #data$train.data=new.env() #l?scht bereits erstellte train.data
+
+  #sfStop()
+  #..................................................................................................&gt;&gt;
+  #..................................................................................................&gt;&gt; 
+
+  if (F)
+  { 
+    do.par
+    load(file=&quot;em4b.data&quot;)
+    prepare_Parallel() 
+    #sfExport(&quot;data&quot;)
+
+    ls(data);   dim(data$train.data[[&quot;EXX50_RI&quot;]])
+  }
+  #forest-trainieren+evaluieren -&gt; signale,rankings und variablenSelektion  berechen
+
+
+  #................................................................................
+  #der Start der Experiment-Runs
+  TrainRun_EM4B(Experi=experiment$TEST , do.par=F)
+
+  TrainRun_EM4B(Experi=experiment$macro.select , do.par=F)
+  TrainRun_EM4B(Experi=experiment$macro.select.m , do.par=F)
+
+  mP(&quot;fertig mit allen test-train-runs&quot;)
+  auswertung(Experi=experiment$macro.select)
+  auswertung(Experi=experiment$macro.select.m)
+
+
+
+
+
+  #noch UNGENUTZT
+  #Alles in einem:
+  #TSA-Maschine:
+  #cloud berechenen, 
+  #forest-trainieren+evaluieren -&gt; signale,rankings und variablenSelektion  berechen
+  #timing + selektion + allokation
+  if (F)
+    x=indi.Generic(&quot;signal.randomForest.e4&quot;, global_arg, 
+                   par=list(sma.w=200),
+                   xarg=list(),
+                   T.arg = list(stop.on=&quot;stopsys.sma200&quot;),
+                   S.arg = list(nTop=-2, kTop=0, rank.fn = &quot;rank.at.data&quot;),
+                   visual=T, TRAINSYM =-1, experiment=&quot;&quot;,
+                   A.arg = list(alloc.at=&quot;months&quot;, 
+                                commission = list(cps = 0.1, fixed = 0.0, percentage = global_commission))
+    )
+
+  #28.11.2013
+  #summiere die variablen-wichtigkeit  und modell-qualit?t  (gibt jeweils ein Zeitreihenk?rzel nach| mit nach colnames)
+  #samt caret- baum-chart dazu
+  #nimm die macro-variablen hinzu, als:  faber, slope, atr.d, orange.slope, ROC, mNorm
+  #  
+
+
+  #test signal-output f?rs timing  und - in verbindung mit seiner sicherheit -  f?r die selektion mit 
+  #TSA-aufruf:  indi.Generic  (...run.TSA())
+  #sfLapply  ?ber alle Symbole - dazu noch in der cloud in jeden spaltennamen das sym reinmischen
+
+  #aspekte der tech.cloud (labor.signal.r) hinzumischen
+}
+
+##################################################################################
+
+
+TrainRun_EM4B&lt;-function(Experi=experiment$macro.select , do.par=do.par)
+{ 
+  #MMRUN
+  #  experi = Experi$experi
+  experi=  deparse(substitute(Experi))  
+  experi=rightOf(experi,&quot;\\$&quot;)
+
+  info=list.info(Experi,name= experi)
+  cat(info,file=sprintf(&quot;%sExperimentInfo.txt&quot;,path),sep=&quot;\n&quot;)
+  print(info)
+
+  mP(&quot;..............TrainRun_EM4B  %s&quot;,experi)
+
+  retrain.on =Experi$retrain.on
+  symbolnames=Experi$symbolnames
+
+  Target.fn= match.fun(Experi$Target.fn)
+  train.data=Experi$train.data
+  par=Experi$par
+  backtest.frame=Experi$backtest.frame #&quot;::2013-05-31&quot;
+  path= sprintf( &quot;Models/%s/%s/&quot;, Experi$path,experi);    dir.create(path,recursive=T)
+  all.sig=lapply(symbolnames,function(sym)
+    #all.sig=sfLapply(symbolnames,function(sym)    #ich mach die parallelisierung jetzt eins tiefer, in signal.randomForest.e4()
+  {
+    #    sym=data$BENCH
+    mP(&quot;&gt;&gt;TrainRun_EM4B %s %s&quot;,experi,sym)
+    data$Target = Target.fn(data,sym)  #die Target-Daten des aktuellen symbols    
+    if (is.character(train.data))
+    { 
+      train.data.fn = match.fun(train.data)
+      train.data= train.data.fn(data,sym)
+    }
+    data$train.data = merge(data$Target, train.data)
+    print(dim(data$train.data)  )
+    data$crs=new.env() #l?scht das schon gelernte
+    arg= list(dat =data, clos=data$prices[backtest.frame,sym],Target=data$Target[backtest.frame] )
+
+    if (do.par)
+    {
+      #      prepare_Parallel() 
+
+      sfExport(&quot;retrain.on&quot;)
+      sfExport(&quot;data&quot;)
+    }
+    #....... der parallel-core-aufruf zum iterieren (forest-lernen+forst-nutzen) 
+
+    RES= signal.randomForest.e4b(arg,par,retrain.on=retrain.on,visual=F,do.par=do.par)
+
+    #  browser(mP(&quot;RES&quot;))
+    res = RES$res
+    ls(res)
+    signal=res[[sprintf(&quot;%s.sig&quot;,sym)]]
+    head(signal)
+    wichtigkeit =res[[sprintf(&quot;%s.forest.fit.wichtigkeit&quot;,sym)]]
+    mP(&quot;#a1&quot;)
+    #browser(mP(&quot;xxxx res&quot;))
+    save(signal,file=sprintf(&quot;%ssignal_randomForest_e4_%s&quot;,path,sym),signal)
+    write.xts(merge(data$prices[fromToS(signal),sym],signal),sprintf(&quot;%sssignal_randomForest_e4_%s.csv&quot;,path,sym))
+
+    save(wichtigkeit,file=sprintf(&quot;%swichtigkeit_randomForest_e4_%s&quot;,path,sym),wichtigkeit)
+    write.xts(wichtigkeit,sprintf(&quot;%swichtigket_randomForest_e4_%s.csv&quot;,path,sym))
+
+
+    if (do.par)
+      sfStop() 
+
+    return(res)
+  })
+
+} #.................................................................................................................
+#######################################################################################
+
+auswertung&lt;-function(Experi=experiment$macro.select, bestN=30)
+{
+  experi=  deparse(substitute(Experi))  
+  experi=rightOf(experi,&quot;\\$&quot;)
+  mP(&quot;..............auswertung zu  %s&quot;,experi)
+  symbolnames=Experi$symbolnames
+  path= sprintf( &quot;Models/%s/%s/&quot;, Experi$path,experi);   
+
+
+  #info=list.info(Experi,name= experi)
+  #cat(info,file=sprintf(&quot;%sExperimentInfo.txt&quot;,path),sep=&quot;\n&quot;)
+
+  #................................................................................
+  #MMAUSW
+  #auswertung  .. wie ver?ndert sich die forest.fit.wichtigkeit  ... 
+  no=lapply(1:len(symbolnames),function(sym.i) 
+  {
+    #sym.i=1
+    sym=symbolnames[sym.i]
+    #ls(res[[1]]) #&quot;confidence&quot; &quot;model.err&quot;  &quot;signal&quot; 
+    if(F)  #noch im speicher .
+    {
+      res = all.sig[[sym.i]]
+      forest.fit.wichtigkeit=res[[sprintf(&quot;%s.forest.fit.wichtigkeit&quot;,sym)]]
+      sig=  res[[sprintf(&quot;%s.sig&quot;,sym)]]
+    }
+    else #schon serialisiert
+    {
+      load(file=sprintf(&quot;%ssignal_randomForest_e4_%s&quot;,path,sym))
+      sig=signal
+      load(file=sprintf(&quot;%swichtigkeit_randomForest_e4_%s&quot;,path,sym))
+      forest.fit.wichtigkeit = wichtigkeit
+    }
+    #browser(mP(&quot;###1&quot;))
+    #die trainings-qualit?t ?ber die zeit
+    model.err = forest.fit.wichtigkeit[,1]
+    mPlots(merge(sig[,1],0),sig[,2],model.err,title=&quot;signal+condfidence+model.err&quot;)
+    purePlot(model.err, main=sprintf(&quot;model.err %s&quot;,sym))
+    #die Variablen-Wichtigkeit ?ber die Zeit
+    dim(forest.fit.wichtigkeit[,-1])
+    #browser(mP(&quot;now&quot;))
+    purePlot(forest.fit.wichtigkeit,main=sprintf(&quot;forest.fit.wichtigkeit %s&quot;,sym))  
+    #browser(mP(&quot;#A1&quot;))
+    wich=summary(forest.fit.wichtigkeit)
+
+    wich=wich[,order(wich[4,],decreasing=T)  ]
+    wich.col=colnames(wich)
+    wich=t(wich);rownames(wich)=wich.col
+    wich=wich[,c(1,3,4,6)]
+    View(wich)
+    utils::write.table(wich,file=sprintf(&quot;%swichtigkeit_%s.csv&quot;,path,sym),dec=&quot;.&quot;,sep=&quot;;&quot;,col.names=F,row.names=T)
+
+    colMeans(forest.fit.wichtigkeit)
+    #plotSigPrice(signal=sign(signal-1), prices=p[fromToS(signal)], indi=list(sollIst=merge(signal,target,0)))
+    #mPlots(p[fromToS(target)],merge(target,0),abs(bug),title=&quot;target-&gt;signal&quot;)  
+
+    b=na.omit( merge(sig[,1], data$prices[,sym]))
+    plotSigPrice(signal=b[,1],prices=b[,2])#,indi=list(conf=merge(sig[,2])))
+
+    df=data.frame(colMeans(forest.fit.wichtigkeit[&quot;2010::&quot;,-1]))
+
+    #.............................................................
+    # Ausfilern der wichtigsten Fundamentalfaktoren
+    #
+    #die pro quartal gemittelten faktoren-gewichte
+    df.q= apply.yearly(x=forest.fit.wichtigkeit[,-1], colMeans)
+    #View(df.q)
+    #browser(mP(&quot;pre ntop&quot;))
+    #die 100 wichtigsten quartals-faktoren
+    nt=ntop(df.q, min(300,ncol(df.q)))
+    #nt[,&quot;EXX50_RI.1&quot;]
+    #View(df.q)
+    #ihre-colnames
+    k=bt.apply.matrix(nt, function(col) {ifelse(col!=0,colnames(col),&quot;&quot;)})
+    #View(k)
+    #nun reduziert auf die fundamentalfaktoren (technische faktoren haben vor  &lt;sym&gt;. im colname)
+    #(vorsicht- da fliegen die ganzen Preise raus )  
+    k2=bt.apply.matrix(k, function(col) 
+    {iif (col!=&quot;&quot; &amp; len(grep(sprintf(&quot;%s.&quot;,sym),col )) == 0  ,col,&quot;&quot;)})
+    k2=k
+    # k2=k  #ohne BeschrÃ¤nkung auf FundamentalfaktorenQ
+    # View(k2)
+    k3= lapply(1:nrow(k2), FUN=function(row.i){spl(paste(k2[row.i,]))})
+    #pro listenvektor ein vector mit den fundi-gewichten
+    k4=lapply(1:len(k3),function(c1) sapply(k3[[c1]],function(x) df.q[c1,x]))
+    #das faktor-gewicht soll wenigstens 4 sein
+    K4=data.frame(do.call(&quot;cbind&quot;,k4))
+    colnames(K4)=as.character(as.Date(index(k2)))
+    View(K4)
+
+    #doofes write.table .. muss hier selber die columnnames basteln
+    K4=rbind(Dates=c(colnames(K4)),K4)
+
+    utils::write.table(K4,file=sprintf(&quot;%sTop300Faktoren_%s.csv&quot;,path,sym),dec=&quot;.&quot;,sep=&quot;;&quot;,col.names=F,row.names=T)
+
+    #k5=lapply(k4,function(c1)c1[c1 &gt; 4]  )
+    #k5=k4
+    #die ListeNamen k5 als DatÃ¼mer wÃ¤hlen
+    #names(k5)&lt;-index(df.q)
+    #View(data.table(k5))
+
+    #baue eine abgespecktes Trainings-Objekt dass nur noch die wichtigsten 
+    #faktoren enthÃ¤lt
+    if(bestN&gt;0)
+    {
+      mP(&quot;make bestN %d train.set&quot;,bestN)
+      ff=colMeans(forest.fit.wichtigkeit)   
+      ff.best=head(ff[order(ff,decreasing=T)],bestN)
+      target.fn=match.fun(Experi$Target.fn)
+      Target= target.fn(data,sym)
+      train.best=merge(Target,Experi$train.data[,names(ff.best)])
+      utils::write.table(train.best,file=sprintf(&quot;%strainTop%d%s.csv&quot;,path,bestN,sym),dec=&quot;.&quot;,sep=&quot;;&quot;,col.names=F,row.names=T)
+     return(train.best)
+    }
+  }
+  )   
+}
+########### wird so auch in MM_Main.R  mit universe = Eckhard4 geladen
+#ein virtuelles data-env vorbereiten - damit das SIT-Framework laufen kann
+
+make_eckhard4B_data&lt;-function(visual=F,bench=&quot;EXX50_RI&quot;,do.par=T, mkTrain=F)
+{
+  #einlesen von xls -sheets in xts- variable
+  exx50.all= read.EckhardsXLS(modelDir=&quot;EM4_DEC.1&quot;, xlsName=&quot;Data0E.xls&quot;,startRow=5,belowColnames=5, date.format = &quot;%d.%m.%Y&quot;,to.month.end=F,debug=F)  
+
+
+  dim(exx50.all)  #4392 Tage mit 39 Spalten
+  #enhÃ¤lt folgende 3 logischen Gruppen
+  exx50=exx50.all[,1]
+  fundamentale.faktoren= exx50.all[,c(2:25)]
+  intermarket.faktoren = exx50.all[,c(26:ncol(exx50.all))]
+
+  colnames(exx50)
+  colnames(fundamentale.faktoren)
+  colnames(intermarket.faktoren)
+
+  exx50.n =mNorm(exx50)[&quot;1997::&quot;]
+  #Die Fundamentalfaktoren haben einen time lag von 20 Tagen, die Inter-Market Faktoren haben keinen time lag. 
+  fundamentale.faktoren.n= mNorm(lag(fundamentale.faktoren,20))[&quot;1997::&quot;] #hier schon mal gelagged weil die Teile ja einen Monat Lieferversp?tung haben
+  #head(merge(fundamentale.faktoren[,1],fundamentale.faktoren.n[,1]),30)
+  intermarket.faktoren = mNorm(intermarket.faktoren)[&quot;1997::&quot;] #wichtig:  die Anfangslag normiert die (fr?hen) Werte
+
+
+  #mkTrain macht hier nur ein univariates Target 
+  data &lt;-  make.data(na.omit(merge(exx50.n,intermarket.faktoren )), mkTrain=F,visual=T,bench=bench)
+  data$macros=fundamentale.faktoren
+  data$betas=beta.again.portfolio(data) #die monats-betas der data$prices gegen?ber ihrem gleichgewichteten portfolio
+  mchart(data$betas)
+  data$crs=new.env() #f?r den forest
+  data$train.data = new.env()  #die dataCloud - gecashed
+  #noch zusÃÂ¤tzlich den ifo dazu
+  if  (is.null(data$ifo))
+    data$ifo =  try(load.IFO(visual=T))
+
+
+  data$BENCH &lt;-BENCH &lt;-global_arg$BENCH &lt;-bench
+  global_arg&lt;&lt;-list(clos=data$prices,dat=data)  #MANDATORY !!!!!
+  global_commission&lt;&lt;-0.0015   #sys.Run() nimmt diese commission !!!!
+
+  global_ParTable &lt;&lt;-NULL   #leere Parameter-Tabelle vorbereiten
+  global_StartDate &lt;&lt;-  DateS(last(data$prices)) 
+  global_objectId &lt;&lt;-paste(&quot;TREND&quot;,&quot;xx&quot;,&quot;signal.lm&quot;) 
+  global_FastTrain &lt;&lt;-20 #hei?t:  f?r jede dim werden 2 Schritte ausprobiert.
+
+  return(data)
+}
+
+#steuer die cloud-erstellung mit folgenden schaltern:
+
+#cloud.control = spl(&quot;lagged&quot;)# spl(&quot;heavy,forecast,pca,OHLC,lagged,coarse.code&quot;)
+#########################################################################################
+#Dieser cloudGenerator (analog zu dem in indicators2.r) ist durchaus dax-spezifisch weil hier heftig auch vom Ifo-gebrauch #gemacht wird.  Ferner weden die signale gelagged und coarse.coded()  .. pca k?nnen bei bedarf #aktiviert werden.  Ebenso k?nnen forecast() eingebunden werden.
+#es wird 1 Tag gelagged
+#########################################################################################
+tech.Cloud&lt;-function(sym,arg,par,p,P=NULL,target,cloud.control=list())
+{
+  mP(&quot;dataCloud.e4&quot;)
+  #browser(mP(&quot;###2&quot;))  
+
+  ret.p = mROC(p[,sym])
+  normP = mNorm(p[,sym])
+  .
+  # colnames(forecasts)=c(&quot;forecasts&quot;)
+
+  #if  (is.null(arg$dat$ifo))
+  #  arg$dat$ifo =  try(load.IFO(visual=T))
+
+  if (len(arg$dat$ifo)&gt;0)
+    IFO.m=lag(to.monthly(arg$dat$ifo)[,6])  #fundamentales Umfeld  -  h?ngt einen monat hinterher
+
+  sd=runSD(ret.p,n=30)
+  colnames(sd)=c(&quot;sd&quot;)
+
+  mad=runMAD(p,n=30)
+  colnames(mad)=c(&quot;mad&quot;)
+
+  atr=ATR(HLC(to.monthly(p)))
+  atr.d=(atr[,2]-atr[,1])
+  colnames(atr.d)=c(&quot;atr.d&quot;)
+
+  if (is.null(P) ||   ! listget(&quot;OHLC&quot;,cloud.control))
+    hl=(Hi(to.monthly(p))-Cl(to.monthly(p)))/(Hi(to.monthly(p))-Lo(to.monthly(p)))
+  else
+    hl=(Hi(to.monthly(Hi(P)))-Cl(to.monthly(p)))/(Hi(to.monthly(Hi(P)))-Lo(to.monthly(Lo(P))))
+  colnames(hl)=c(&quot;hl&quot;)
+
+
+  if ( listget(&quot;heavy&quot;,cloud.control))    
+  {
+    mP(&quot;kelly&quot;)  
+    kelly &lt;- rollapplyr(ret.p, width=90, FUN=&quot;KellyRatio&quot;, by.column=T, align = &quot;right&quot;)
+    kelly[!is.finite(kelly)]&lt;-0
+    colnames(kelly)=c(&quot;kelly&quot;)
+
+    mP(&quot;calmarRatio&quot;)  
+    calmarRatio &lt;- rollapplyr(ret.p, width=90, FUN=&quot;CalmarRatio&quot;, by.column=T, align = &quot;right&quot;)
+    calmarRatio[!is.finite(calmarRatio)]&lt;-0
+    colnames(calmarRatio)=c(&quot;calmarRatio&quot;)
+
+    mP(&quot;sharpe&quot;)
+    sharpe &lt;- rollapplyr(ret.p, width=60, FUN=&quot;doSharpeRatio&quot;, by.column=T, align = &quot;right&quot;)
+    sharpe[!is.finite(sharpe)]&lt;-0
+    colnames(sharpe)=c(&quot;sharpe&quot;)
+
+    mP(&quot;expectedShortfall&quot;)
+    es &lt;- rollapplyr(ret.p, width=60, FUN=&quot;ES&quot;, by.column=T, align = &quot;right&quot;,p=.95, method=&quot;historical&quot;)
+    es[!is.finite(es)]&lt;-0
+    colnames(es)=c(&quot;es&quot;)
+  }
+  else
+  {
+    dummy=p;dummy[]=0.93
+    kelly=calmarRatio=sharpe=es=dummy
+    colnames(kelly)=c(&quot;kelly&quot;)
+    colnames(calmarRatio)=c(&quot;calmarRatio&quot;)
+    colnames(sharpe)=c(&quot;sharpe&quot;)
+    colnames(es)=c(&quot;es&quot;)
+  }
+  faber=p-SMA(p,200); colnames(faber)=c(&quot;faber&quot;)
+  #~~~~~~~~~~~~~~~~~~~~ Training~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  cutTail=250   #die j?ngsten Daten taugen meist nicht zum Training
+  mP(&quot;cutTail %d from target ! &quot;,cutTail)
+  #  browser()
+  train.frame= fromToS(na.omit(target[-c((shape(target)-cutTail) : shape(target))]))
+  mP(&quot;train.frame is %s&quot;,train.frame)
+
+  #.......................................................................................
+  mP(&quot;first merge and slopes&quot;)
+
+  pSMA200=  p/SMA(p,200)
+  pMax200=p-runMax(p,200)
+  beta=arg$dat$betas[,sym]
+  colnames(beta)=sprintf(&quot;beta_%s&quot;,sym);
+  colnames(pMax200)=&quot;pMax200&quot;
+  colnames(pSMA200)=&quot;pSMA200&quot;
+  #browser()
+  itpP=in.Trend.pos(p,visual=F,main=&quot;itp&quot;,k=160,K=2,probs=c(0.1,  .20,  0.80))
+  colnames(itpP)=&quot;itpP&quot;
+
+  features=merge(
+    faber, 
+    pMax200, # 0.94
+    pSMA200,
+    #aroon(LoHi(P))/100 , #unwichtiger wie nach PNN noch gedacht
+    atr.d,  #produziert das wichtige trueHigh und das unwichtige tr
+    #BBands(HLC(P))[,4],  #pctB  wird nicht gebraucht
+    #p-ZLEMA(na.omit(p),n=30)
+    #DonchianChannel(HLC(P)[,-3],n=30),   
+    sd,
+    rollRegressionXTS(p,win=90),rollRegressionXTS(p,win=200),
+    #runSum(sign(to.monthly(p)),7),
+    hl,
+    sharpe,
+    es,
+    kelly,
+    calmarRatio,
+    beta,
+    itpP
+  )
+
+
+  #--------------------
+
+  if (len(arg$dat$ifo)&gt;0)
+    features = merge(features, merge(IFO.m-SMA(IFO.m,7))/IFO.m, runSum(sign(IFO.m),3))
+
+  #  features= bt.apply.matrix(features,ifna.prev)
+
+  mP(&quot;RSI&quot;)
+  rsi.m= merge(RSI(p,2),RSI(p,60))
+  colnames(rsi.m) = spl(&quot;rsi2,rsi60&quot;)
+  rsi.m[!is.finite(rsi.m)] &lt;-0
+
+  mP(&quot;SMA-runMax&quot;)
+
+  sma.d=merge(
+    SMA(p,200)-runMax(p,200), 
+    SMA(p,90)-runMax(p,90), 
+    SMA(p,60)-runMax(p,60) 
+  )
+  colnames(sma.d) = spl(&quot;sma.d200,sma.d90,sma.d60&quot;)
+
+  #features = na.omit(features)#[fromToS(p)]
+  features = merge(features,rsi.m, sma.d)
+  #.......................................................................................
+  if ( listget(&quot;forecast&quot;,cloud.control))    
+
+  {
+    fcs=forecast.m(p[,sym]) 
+    features = merge(features,fcs)
+  }
+  #......................................................................................
+
+
+  mP(&quot;ifna.prev&quot;)
+  features= na.omit( bt.apply.matrix(features,ifna.prev))
+  #  tail(features)
+  # colnames(features)
+
+  #.................................................................
+
+  if ( listget(&quot;coarse.code&quot;,cloud.control))    
+
+  {
+    mP(&quot;coarse.code&quot;)
+    mP(&quot;feature coarseCode %d&quot;,dim(features)[2])  
+
+    features.coarse= bt.apply.matrix(na.omit(features),coarse.code,b=100,method=&quot;n&quot;)
+    #plot( coarse.code(dax[&quot;1994::&quot;],b=10,method=&quot;n&quot;))
+  }
+  #------------------------------------------------------------------
+  if ( listget(&quot;pca&quot;,cloud.control))    
+  {
+    mP(&quot;pca&quot;)
+    #jetzt noch die pca-komponenten
+    library(&quot;caret&quot;)
+
+    #pca_features &lt;- preProcess(features, method = &quot;pca&quot;,na.remove=F)
+    #pca_features$numComp   #so viele Variablen werden gebraucht !!!
+
+    mP(&quot;pca&quot;)
+    pca_features=prcomp(features, scale = TRUE,center=T,tol=0.15)$x   #biplot(pc)
+    dim(pca_features)
+    colnames(pca_features)
+
+    # features = merge(features,pca_features)  #auch pca
+    #features =pca_features   #nur pca
+    #tail(features)
+  }
+  #----------------------------------------------------------------------------
+  if ( listget(&quot;lagged&quot;,cloud.control))    
+  {
+    mP(&quot;lagged&quot;)
+    #auch ge lagte features hinzunehmen
+    features.lag = lag(features,5)
+    colnames( features.lag ) =  sapply(colnames(features.lag),function(x){ sprintf(&quot;%s%s&quot;,&quot;LAG5_&quot;,x)})
+    features.lag5=features.lag
+
+    features.lag = lag(features,30)
+    colnames( features.lag ) =  sapply(colnames(features.lag),function(x){ sprintf(&quot;%s%s&quot;,&quot;LAG30_&quot;,x)})
+    features.lag20=features.lag
+
+    features.lag = lag(features)
+    colnames( features.lag ) =  sapply(colnames(features.lag),function(x){ sprintf(&quot;%s%s&quot;,&quot;LAG_&quot;,x)})
+
+    features.lag.hot = HotLags2.CC(p, features)# lag(features,hotlag)
+    colnames( features.lag.hot ) =  sapply(colnames(features.lag.hot),function(x){ sprintf(&quot;%s%s&quot;,&quot;LAGHOT_&quot;,x)})
+
+
+    features = merge(features,features.lag,features.lag5,features.lag20) #lags benutzen
+  }
+  #-------------------------------------------------------------------------------
+  #mP(&quot;define target&quot;)
+
+  #target =target[,sym];colnames(target)=c(&quot;Target&quot;)
+  #target=select.multiTarget.sum(arg$dat, sym)
+
+  mP(&quot;rename features to %s&quot;,sym)
+  #noch den Symbol-Namen -   vor den featureNamen schreiben - damit notfalls eine super-breit cloud gebildet werden kann
+  newColnames= sapply(colnames(features), function(colname){sprintf(&quot;%s-%s&quot;,sym,colname)})
+  colnames(features) = newColnames
+
+  print(colnames(features))
+
+
+  #in die colnames den sym-namen mit aufnehmen
+
+  mP(&quot;build and lag train.data frame&quot;)
+  #1 Tag lag sonst kristallkugel
+  train.data&lt;-data.frame(na.omit(  lag  (merge(target,features))))
+  #  browser(mP(&quot;ok -----------------------------&quot;))
+
+
+  #gibt es is.infinite-Werte ?
+  if (sum(apply(train.data,2,FUN=function(col) len(col[is.infinite(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(train.data)) %do%  { train.data[is.infinite(train.data[,col.i]),col.i]&lt;-0 }
+
+  return( train.data)
+  ###################################################################################################
+}
+
+############################################################################################################################
+############################################################################################################################
+
+
+
+signal.randomForest.e4b &lt;-function(arg, par = mlist( sma.w=c(200,120,350,10)),retrain.on=&quot;quarterly&quot;,visual=F,do.par=T,...)
+{
+  mP(&quot;signal.randomForest.e4b&quot;)
+  #Vorausetzung in arg$dat$Target liegen pro price-Symbol TargetTrainingsdaten
+  mP(&quot;##1&quot;)
+  sym=colnames(arg$clos)
+  train.data = arg$dat$train.data  
+  p=mNorm(arg$clos)
+  today=as.Date(last(index(p)))
+  target=na.omit(arg$dat$Target)
+  crs = arg$dat$crs   #das trainings-environment - siehe rattle  
+  P=na.omit(arg$dat[[sym]])
+  P=NULL  #eckhard liefert kein OHLC
+  #berechne alle merkmale f?r den dax
+
+  #........ baue die Data-cloud (einmal - chashe sie in train.data)
+  if (is.null(train.data))
+  {
+    sag(&quot;ich erwarte in arg$dat$train.data die trainings-daten - cloud zum jetztigen symbol&quot;,warte=T)
+    #  features = tech.Cloud(sym,arg,par,p,P,target)
+    # arg$dat$train.data[[sym]] = features
+  } 
+  else
+    features = na.omit(arg$dat$train.data)   #chashe
+
+  mP(&quot;features ready %d %d&quot;,dim(features)[1],dim(features)[2])
+  priceFeatures =merge(p,features)
+
+  #gibt es is.infinite-Werte ?
+  if (sum(apply(priceFeatures,2,FUN=function(col) len(col[is.infinite(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(priceFeatures)) %do%  { priceFeatures[is.infinite(priceFeatures[,col.i]),col.i]&lt;-0 }
+
+
+  #laufe ?ber die Daten,  trainiere monatlich, und gibt f?r jeden Tag die prognose zur?ck- als tupel aus (signal, signal.sicherheit)
+  firstUsefulDate =DateS(first(na.omit(priceFeatures)))
+  #browser(mP(&quot;.....&quot;))
+  #  firstUsefulDate = &quot;2002-01-01&quot;  #vorher gings immer nur bergauf
+  firstUsefulDateS = sprintf(&quot;%s::&quot;,firstUsefulDate) #?berspringe den anf?nglichen NA - Bereich der priceFeatures
+
+  #  first( which(priceFeatures[firstUsefulDateS,&quot;Target&quot;] != 1))
+  ################################################################################################
+  mP(&quot;#a2&quot;)  
+
+  sig.value = merge(p[firstUsefulDateS],p[firstUsefulDateS],p[firstUsefulDateS]);sig.value[]=NA
+  #iteriere mit lapply  (parallelisierbar)
+
+  #1000:shape(p[firstUsefulDateS])
+  #es kann sein, dass es zu einzelnen kurstagen-keine price-features gibt
+  #bauen ein P=p der nur dort Werte enhÃ¤lt an denen es auch priceFeatures (ab Col 2) gibt
+  P= na.omit(merge(p[firstUsefulDateS],priceFeatures[firstUsefulDateS,2]))[,1]
+  mP(&quot;roll for %d days&quot;,shape(P)-1000)
+
+  if (shape(P)&lt;1000)
+  {    
+    sag(&quot;Sorry - need at last 1001 data&quot;,warte=T)
+    stop
+  }
+
+  if (do.par)  
+    sig.value.list=sfLapply(1000:shape(P), function(p.i) roll.classifier.e4b(P ,allFeatures=priceFeatures[firstUsefulDateS],maxWin=2500, retrain.on=retrain.on,crs=crs,p.i=p.i)) 
+  else
+    sig.value.list=lapply(1000:shape(P), function(p.i) roll.classifier.e4b(P ,allFeatures=priceFeatures[firstUsefulDateS],maxWin=2500, retrain.on=retrain.on,crs=crs,p.i=p.i)) 
+
+
+  mP(&quot;hol results&quot;)
+  # browser()
+  #ergebnisse aus er liste holen
+  sig.value=foreach(i= sig.value.list,.combine=&quot;rbind&quot;) %do%
+{   i  }
+
+  #  View(sig.value)
+  #alternativ: iterriere mit rollapplyr
+  if (F)
+    sig.value &lt;- rollapplyr(P, width=1000, FUN=roll.classifier.e4b, by.column=F,allFeatures=priceFeatures[firstUsefulDateS],maxWin=2500, retrain.on=retrain.on,crs=crs)
+  ################################################################################################
+  mP(&quot;signal.randomForest.e4b  %s  fertig ####################### &quot;,sym)
+
+
+  signal = sig.value[,1]
+  sig.confidence = sig.value[,2]
+  model.err = sig.value[,3]
+  res = list()
+  res[[sprintf(&quot;%s.sig&quot;,sym)]]=sig.value
+  wichtigkeit=na.omit(sig.value[,4:ncol(sig.value)])
+  res[[sprintf(&quot;%s.forest.fit.wichtigkeit&quot;,sym)]]=wichtigkeit#crs$forest.fit.wichtigkeit
+
+  target=target[fromToS(signal)]
+  bug=abs((target-signal))
+
+  if (visual)
+  {
+    dim(na.omit(signal))
+    dim(p)
+    dim (bug)
+    fromToS(p)
+    fromToS(signal)
+
+    #b=na.omit(merge(signal,p,bug))
+    #signal =b[,1];p1=b[,2];bug=b[,3]
+
+    plotSigPrice(signal=sign(signal-1), prices=p[fromToS(signal)], indi=list(sollIst=merge(signal,target,0)))
+    mPlots(p[fromToS(target)],merge(target,0),abs(bug),title=&quot;target-&gt;signal&quot;)  
+
+
+    #   plotSigPrice(signal=sign(target),prices=p1,indi=list(confi=sig.confidence,bug=merge(signal,bug)))  
+  }
+
+  return(list(Signal=signal[train.frame], Indi=list(conf=sig.confidence, bug=bug), res=res)) #ma=merge(features[,1],features[,2],p)[train.frame]
+}
+#...................................................................................
+
+if (F)
+{
+  sym=&quot;DAX30&quot;
+
+  arg= list(dat =data, clos=data$prices[,sym],Target=data$Target )
+
+  arg$dat$train.data=new.env() #l?scht bereits erstellte train.data
+
+  par=list(sma.w=200)
+
+  sig= signal.randomForest.e4(arg,par) 
+}
+#####################################################################################################################
+
+#####################################################################################################################
+#laufe t?glich ?ber die Daten,  trainiere monatlich, und gibt f?r jeden Tag die prognose zur?ck- als tupel aus (signal, signal.sicherheit)
+#wir haben ABEND ..  die Close-Kurse liegen vor.
+if (F)
+{
+  sym=&quot;DAX30&quot;
+  # roll.classifier.e4(data$prices[&quot;::2012-12-31&quot;,sym], data%train.data[[sym]],maxWin=2500, retrain.on=&quot;quarterly&quot;,crs=data$crs)  
+}
+#####################################################################################################################
+
+
+roll.classifier.e4b&lt;-function(p, allFeatures, maxWin=600, retrain.on=&quot;monthly&quot;,crs=NULL,p.i=0)
+{
+  mP(&quot;roll.classifier.e4b&quot;)
+
+  #das bis maxWin wachsende Zeitfenster zum Tag:  lastDay
+  sym=colnames(p);  if (is.null(sym))    sym=1
+  pricesFeatures=na.omit(allFeatures)
+  dim(pricesFeatures)
+  if (p.i&gt;0)
+    p=p[max(p.i-maxWin,1):p.i]
+
+  toDay = DateS(last(p))
+
+  #das Ergebnis wird ein 3 dim  xts aus signal und signalsicherheit und model.err
+  res=as.xts(data.frame(signal=0,confidence=0, model.err=0),index(last(p)))
+
+  mP(&quot;...      roll.classifier.e4b     %s %d %s&quot;,sym,p.i,toDay)
+  if (shape(na.omit(allFeatures[toDay,-1]))==0)
+  {mP(&quot;SORRY - there are no cloud-features for today &quot;);browser();return(res)}
+  if (toDay==&quot;&quot;)
+  {mP(&quot;SORRY - there are no price-data for today &quot;);return(res)}
+
+  firstPriceDate.i=max(1,get.Index(pricesFeatures,DateS(last(p)))-maxWin)  #das fenster w?chst bis zu maxWin
+  firstPriceDate = DateS(pricesFeatures[firstPriceDate.i])
+  #der passende  merge(p,feature) - Datenausschnitt
+  priceFeatures=na.omit(allFeatures[sprintf(&quot;%s::%s&quot;,firstPriceDate,toDay)])  #das mit jedem  schritt wachsenden Preis-fenster
+  print(last(p))
+
+  # if (dim(na.omit(priceFeatures))[1] &lt; nrow(p))   #jetzt liegen wenigstens nrow(p) features vor
+  #    return()
+  #browser(mP(&quot;roll.classi&quot;))
+  #liegt ein (eher seltenes  retrain- Event vor ?) 
+  firstCall=ifelse( len(ls(crs))==0,T,F)#wenn noch nie mit dem trainings-environment gearbeitet wurde, ist es leer, also muss auf jeden fall erst mal trainiert werden
+  #++++++++ das aktuelle modell zu einer Prognose heranziehen
+
+  prognose=NULL
+  if (!firstCall)
+    prognose = classifier.randomForest.predict(crs, priceFeatures[toDay,-1])
+  mP(&quot;#A1&quot;)
+
+  #+++++++++ muss das modell ge fitted werden ?
+  forest.fit.wichtigkeit = &quot;no&quot;
+  #if (toDay==&quot;2002-12-31&quot;)
+  #    browser(mP(&quot;##5&quot;))
+  #---------------------------------------------------------------------------------------------
+  last.train.failed =  is.na(last(crs$forest.fit.wichtigkeit) )[1]
+  if (retrain.event(toDay, retrain.on, p) || firstCall || last.train.failed)
+  {
+    mP(&quot;retrain.event !!! at %s ################## %s&quot;,toDay,retrain.on)
+    #browser(mP(&quot;#K1&quot;))
+    forest.fit.wichtigkeit= classifier.randomForest.fit(crs, priceFeatures[,-1])   #trainiere - ohne explizit noch mal die Kurse zu ?bergeben
+    #  mP(&quot;modell.err %f&quot;,forest.fit.wichtigkeit$model.err)
+    #  browser()
+    if (is.na(forest.fit.wichtigkeit))  #ein trainings-lauf ging daneben
+    {
+      mP(&quot;############# training  failed ############&quot;)
+      #eine na-zeile einh?ngen
+      na.f =last(crs$forest.fit.wichtigkeit);na.f[]=NA
+      forest.fit.wichtigkeit=na.f
+    }
+    if (len(crs$forest.fit.wichtigkeit)==0)
+      crs$forest.fit.wichtigkeit= forest.fit.wichtigkeit
+    else
+      crs$forest.fit.wichtigkeit = rbind(crs$forest.fit.wichtigkeit,forest.fit.wichtigkeit)
+    mP(&quot;#A3&quot;)
+  }
+  #---------------------------------------------------------------------------------------------
+  if (is.null(prognose))
+    prognose = classifier.randomForest.predict(crs, priceFeatures[toDay,-1])
+  mP(&quot;#a3&quot;)
+  if (!is.xts(prognose))
+  {
+    mP(&quot;#bug at roll.classifier.e4b_ &quot;)
+
+  }
+  print(prognose)
+  #.................................................................................
+  mP(&quot;#a4---------&gt;&quot;)
+  #cbind der variablenwichtigkeit an die prognose - aber setze na wenn nicht trainiert wurde
+  if (forest.fit.wichtigkeit==&quot;no&quot;)
+  {
+    forest.fit.wichtigkeit=crs$forest.fit.wichtigkeit[1,];
+    forest.fit.wichtigkeit[]=NA
+  }
+  prognose=cbind(prognose,coredata(forest.fit.wichtigkeit))
+  return(prognose)
+
+  #  return(list(prognose=prognose, forest.fit.wichtigkeit= forest.fit.wichtigkeit ))
+
+}
+#roll.classifier.e4&lt;-cmpfun(roll.classifier.e4_)
+
+########################################################################################
+#berechnen und l?ngenbeschneiden der werte
+########################################################################################
+
+micro.cloud&lt;-function(euro.macros,visual=F,cloud.control=list())
+{
+  mP(&quot;micro.cloud&quot;)
+
+  #bereinigen
+  euro.macros.na= m.ifna.prev(euro.macros)
+  if (sum(apply(euro.macros.na,2,FUN=function(col) len(col[is.na(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(euro.macros.na)) %do%  { euro.macros.na[is.na(euro.macros.na[,col.i]),col.i]&lt;-0 }
+
+  #mNorm
+  mNorm.mac= mNorm(euro.macros.na)
+  if (visual)purePlot(mNorm.mac)
+  if (visual)cloud.check(mNorm.mac)
+
+
+  #slope200
+  slope200.mac=rollRegressionXTS(euro.macros.na,win=200)*100
+  slope200.mac = bt.apply.matrix(slope200.mac, cutInterval, mi=-30,ma=30)
+  #slope200.mac=col.rename(slope200.mac,&quot;slope200&quot;)
+
+  if (visual)cloud.check(slope200.mac)
+  if (visual)purePlot(slope200.mac)
+
+  cloud.mac= na.omit(merge( mNorm.mac,  slope200.mac))
+
+  #gibt es is.infinite-Werte ?
+  if (sum(apply(cloud.mac,2,FUN=function(col) len(col[is.infinite(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(cloud.mac)) %do%  { cloud.mac[is.infinite(cloud.mac[,col.i]),col.i]&lt;-0 }
+
+  #MMCLOUDs
+  return(lag(cloud.mac)) #ich hab mit kursen gearbeitet die ich heute morgen, von gestern abend, erhalten hab.
+  #...............................................................................  
+}
+
+
+small.cloud&lt;-function(euro.macros,visual=F,cloud.control=list())
+{
+  mP(&quot;small.cloud&quot;)
+
+  #bereinigen
+  euro.macros.na= m.ifna.prev(euro.macros)
+  if (sum(apply(euro.macros.na,2,FUN=function(col) len(col[is.na(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(euro.macros.na)) %do%  { euro.macros.na[is.na(euro.macros.na[,col.i]),col.i]&lt;-0 }
+
+  #mNorm
+  mNorm.mac= mNorm(euro.macros.na)
+  if (visual)purePlot(mNorm.mac)
+  if (visual)cloud.check(mNorm.mac)
+
+  #faber
+  faber.mac =bt.apply.matrix(euro.macros.na,faber)
+  faber.mac = bt.apply.matrix(faber.mac, cutInterval, mi=-30,ma=30)
+  faber.mac=col.rename(faber.mac,&quot;faber&quot;)
+
+  if (visual)cloud.check(faber.mac)
+  if (visual)purePlot(faber.mac)
+
+  #slope200
+  slope200.mac=rollRegressionXTS(euro.macros.na,win=200)*100
+  slope200.mac = bt.apply.matrix(slope200.mac, cutInterval, mi=-30,ma=30)
+  #slope200.mac=col.rename(slope200.mac,&quot;slope200&quot;)
+
+  if (visual)cloud.check(slope200.mac)
+  if (visual)purePlot(slope200.mac)
+
+  #slope90
+  slope90.mac=rollRegressionXTS(euro.macros.na,win=90)*100
+  slope90.mac = bt.apply.matrix(slope90.mac, cutInterval, mi=-30,ma=30)
+  #slope200.mac=col.rename(slope200.mac,&quot;slope200&quot;)
+
+  if (visual)cloud.check(slope90.mac)
+  if (visual)purePlot(slope90.mac)
+
+
+  #roc 30
+  roc30M.mac=ROC(euro.macros.na,30)
+  roc30M.mac=bt.apply.matrix(roc30M.mac, cutInterval, mi=-50,ma=50)
+  roc30M.mac=col.rename(roc30M.mac,&quot;roc60&quot;)
+
+  if (visual)cloud.check(roc30M.mac)
+  if (visual)purePlot(roc30M.mac)
+
+  #roc 5
+  roc5M.mac = ROC(euro.macros.na,5)
+  roc5M.mac=col.rename(roc5M.mac,&quot;roc5&quot;)
+  if (visual)purePlot(roc5M.mac)
+  roc5M.mac = bt.apply.matrix(roc5M.mac, cutInterval, mi=-20,ma=20)
+  if (visual)cloud.check(roc5M.mac)
+  if (visual)purePlot(roc5M.mac)
+
+  #itp
+
+  itp= foreach(pi=1:ncol(euro.macros),.combine=&quot;merge&quot;) %do%
+{
+  p=euro.macros[,pi]
+  sym=colnames(p)
+  #  browser(mP(&quot;xxx&quot;))
+  mP(&quot;itp %s&quot;,sym)
+
+  if ( listget(&quot;get.Quantile.M&quot;,cloud.control))
+  {     
+    itp=in.Trend.pos(p,visual=visual,main=&quot;itp&quot;,k=160,K=2,probs=c(0.1,  .20,  0.80),opt.getQ=&quot;get.Quantile.M&quot;)
+    itpP=itp$itp
+    itpQm=itp$Q.m
+
+    itpQ1=itpQm[,1]; colnames(itpQ1)=c(sprintf(&quot;%s_itpQ1&quot;,sym))
+    itpQ2=itpQm[,2]-itpQm[,3]; colnames(itpQ2)=c(sprintf(&quot;%s_itpQ2&quot;,sym))
+
+    itpP=col.rename(itpP,&quot;itp&quot;)
+    itpQ1=col.rename(itpQ1,&quot;itpM&quot;)
+    itpQ2=col.rename(itpQ2,&quot;itpdM&quot;)
+    itp=merge(itpP,itpQ1,itpQ2)
+  }
+  else
+  {
+    itp=in.Trend.pos(p,visual=visual,main=&quot;itp&quot;,k=160,K=2,probs=c(0.1,  .20,  0.80))
+    itp=col.rename(itp,&quot;itp&quot;)
+  }
+
+
+}
+  if (visual)cloud.check(itp)
+
+  cloud.mac= na.omit(merge( mNorm.mac, faber.mac, slope200.mac,slope90.mac, roc30M.mac,roc5M.mac, itp))
+
+  if (visual)
+  {
+    purePlot(cloud.mac)  
+    dim(cloud.mac)
+    dim(euro.macros.na)
+  }
+  #gibt es is.infinite-Werte ?
+  if (sum(apply(cloud.mac,2,FUN=function(col) len(col[is.infinite(col)]))) &gt;0)
+    no=foreach(col.i = 1:ncol(cloud.mac)) %do%  { cloud.mac[is.infinite(cloud.mac[,col.i]),col.i]&lt;-0 }
+
+  #MMCLOUDs
+  return(lag(cloud.mac)) #ich hab mit kursen gearbeitet die ich heute morgen, von gestern abend, erhalten hab.
+  #...............................................................................  
+
+
+  if (F) ##... coarse.code ??
+  {
+    CC.roc30M.mac=  bt.apply.matrix(roc30M.mac,function(x) coarse.code(x,method = &quot;n&quot;, b=100,visual=F) ) #univariat, 
+    purePlot(CC.roc30M.mac)  
+
+    roc1M.mac = ROC(euro.macros.na,1)
+    purePlot(roc1M.mac)
+
+    CC.roc1M.mac=  bt.apply.matrix(roc1M.mac,function(x) coarse.code(x,method = &quot;n&quot;, b=100,visual=F) ) #univariat, 
+    purePlot(CC.roc1M.mac)  
+
+    y = bt.apply.matrix(roc1M.mac, cutInterval, mi=-15,ma=15)
+    purePlot(y)
+  }
+}
+
+###########################################################################
+#bereite in  data$tech.data[[sym]] eine breite tech-cloud vor
+#das sind besonders viele technische Indikatoren fÃ¼r die zu prognostizierende Zeitreihe
+#cloud is ready at data$tech.data[[sym]]
+############################################################################
+tech.cloud.builder&lt;-function(symbolnames,tech.Cloud.Fn= &quot;tech.Cloud&quot;, data,visual=F,cloud.control=list(),do.par=F)
+{
+  #fÃÂ¼r jedes sym die dataCloud.e4 berechnen (ca. 70 technisches features auf tagesbasis)
+  if (F) 
+  {
+    symbolnames= data$symbolnames
+    symbolnames = data$BENCH
+    tech.Cloud.Fn= &quot;tech.Cloud&quot;
+    visual=F
+    do.par=T
+    #control-parameter zu fein-spec der technischen  dataCloud.e4
+    cloud.control &lt;&lt;- spl(&quot;heavy,lagged,forecast&quot;)# spl(&quot;heavy,forecast,pca,OHLC,lagged,coarse.code&quot;)
+  }
+
+  tech.Cloud.fn = match.fun(tech.Cloud.Fn)
+  if (do.par)
+  {
+    sfExport(&quot;data&quot;)
+    sfExport(&quot;cloud.control&quot;)
+
+    all.features=sfLapply(symbolnames,function(sym)
+    {
+      Target= select.multiTarget.sum(data, sym)
+      arg= list(dat =data, clos=data$prices[,sym],Target=Target)
+      p=data$prices[,sym]
+      P=data[[sym]]
+
+      features=tech.Cloud.fn(sym,arg,par,p,P=NULL,Target,cloud.control)
+
+      tech.cloud=features
+      tech.cloud=as.xts(tech.cloud, orderby=as.Date(rownames(tech.cloud)))
+      tech.cloud=m.ifna.prev(tech.cloud)
+      try(  write.xts(tech.cloud,filename= sprintf(&quot;techCloud_%s.csv&quot;,sym)))
+
+    })
+  }
+  else
+    all.features=lapply(symbolnames,function(sym)  #sfLapply(symbolnames,function(sym)
+    {
+      #sym=&quot;EXX50_RI&quot;
+      mP(&quot;dataCloud.e4 for %s&quot;,sym)
+      Target= select.multiTarget.sum(data, sym)
+      arg= list(dat =data, clos=data$prices[,sym],Target=Target)
+      par=list(sma.w=200)
+      p=data$prices[,sym]
+      P=data[[sym]]
+
+      features=tech.Cloud.fn(sym,arg,par,p,P=NULL,Target,cloud.control)
+
+      tech.cloud=features
+      tech.cloud=as.xts(tech.cloud, orderby=as.Date(rownames(tech.cloud)))
+      tech.cloud=m.ifna.prev(tech.cloud)
+      try(  write.xts(tech.cloud,filename= sprintf(&quot;techCloud_%s.csv&quot;,sym)))
+
+    })
+
+  mp(&quot;ready with tech.cloud -features for %d symbols&quot;,len(all.features))  #muss der Anzahl der symbole entsprechen
+
+  #propagiere die Ergebnisse nach data$train.data[[sym]]
+  #und misch die cloud.mac hinzu
+  no=lapply(1:len(all.features),function(sym.i)
+  {
+    sym=symbolnames[sym.i]
+    tech.cloud = data.frame(all.features[sym.i])
+
+    #................. die macro-cloud beimischen  und mit m.ifna.prev die monatsdaten auff?llen       
+    tech.cloud=as.xts(tech.cloud, orderby=as.Date(rownames(tech.cloud)))
+    tech.cloud=m.ifna.prev(tech.cloud)
+    try(  write.xts(tech.cloud,filename= sprintf(&quot;techCloud_%s.csv&quot;,sym)))
+    data$tech.cloud[[sym]] =data.frame(tech.cloud)
+  })
+  #..................................................................................................&lt;&lt; 
+  all.features=NULL #speicher freigeben
+  #check
+  print(data$symbolnames)
+  print(ls(data$tech.cloud))
+
+  print( dim(data$tech.data[[symbolnames[1]]]) ) #   -&gt;  3821 Tage * 81 Spalen
+  #  View(data$train.data[[&quot;DAX30&quot;]])
+  print( colnames(data$tech.data[[symbolnames[1]]]))
+  mP(&quot;train.data cloud is ready at data$tech.data[[sym]]&quot;)
+  #................................................................................................
+}
+##########################################################################################
+#TODO
+# repariere tech.cloud bauer    ok?
+# integriere genSA-PortfolioOptimierung
+# erweitere info  um train.data-colnames  - ok
+# sit-TSA: taugt die confidence als selektions-kriterium ? - taugt signal als timing ?
+#
+#signal.labor - als big.data.cloud hinzunehmen -  timing-filter ??
+#
+print(&quot;########### load + source EM4.R&quot;)
+</code></pre>
+
+<pre><code>[1] &quot;########### load + source EM4.R&quot;
+</code></pre>
+
+<pre><code class="r">#sfSource(&quot;MLib/EM4.R&quot;)
+
+if (F)
+{
+  list_R_functions(&#39;MLib/EM4.r&#39;)
+
+}
+</code></pre>
+
+</body>
+
+</html>
+

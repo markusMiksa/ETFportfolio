@@ -1,0 +1,1 @@
+sendemail -f markus.miksa@web.de -t markus.miksa@web.de  -u hi -m "msg" -s smtp.web.de -xu markus.miksa -xp milkapanter -a d:\tv.xlsx

@@ -1,0 +1,474 @@
+﻿Change List 
+
+## 03.06.2013
+
+Template-update, Anpassung BVI-sheet FX Helaba - BIC
+
+	technische Hinweise
+		- MXLS-update einspielen
+		- Templates einspielen
+		
+	fachliche Hinweise
+		- Bei den FX-Transaktionen Helaba wird im Feld Counterparty ID type das Wort BIC angegeben
+
+
+
+
+## 08.05.2013
+
+Template-update, Anpassung BVI-sheet FX Helaba - Broker im Feld Counterparty
+
+	technische Hinweise
+		- Templates einspielen
+		
+	fachliche Hinweise
+		- Bei den FX-Transaktionen Helaba wird im Feld Counterparty die ID und der Name des Brokers angegeben
+
+
+
+## 16.04.2013
+
+MXLS-update, Anpassung aller Securities Execution BVI-Excel Sheet
+
+	technische Hinweise
+		- Templates einspielen
+		- MXLS-update einspielen
+
+	fachliche Hinweise
+		- alle Securities Execution BVI-Excel wurden im Feld Tax um die Transaktionssteuer
+		  erweitert. In den Fällen, in denen das Feld bereits belegt war, wurde die Transaktionssteuer addiert.
+	
+
+
+## 08.01.2013
+
+MXLS-update, neue KAG AmpegaGerling und neue Templates
+
+	technische Hinweise
+		- Templates einspielen
+		- dictionary einspielen
+		- MXLS-update einspielen
+
+	fachliche Hinweise
+		- die KAG AmpegaGerling ist neu aufgenommen worden, als Basis für die BVI-Excels dienen die Execution-Excels von Universal
+	
+
+
+## 12.09.2012
+
+MXLS-update, neue KAG NordLB und neue Templates
+
+	technische Hinweise
+		- Templates einspielen
+		- dictionary einspielen
+		- MXLS-update einspielen
+
+	fachliche Hinweise
+		- die KAG NordLB ist neu aufgenommen worden, als Basis für die BVI-Excels dienen die Execution-Excels von Universal
+	
+
+
+## 09.08.2012
+
+
+MXLS-update und neues Template Metzler
+
+	technische Hinweise
+		- Templates einspielen
+		- MXLS-update einspielen
+
+	fachliche Hinweise
+		- neues Feld Trx_Txn im Export für die französische Transaktionssteuer in BVI-Excel für Metzler ergänzt
+	
+
+## 04.05.2012 Aufnahme neue KAG INKA, neue Templates, neues MXLS-update, neues dictionary
+
+	technische Hinweise
+		- Templates einspielen
+		- MXLS-update einspielen
+		- dictionary einspielen
+
+	fachliche Hinweise
+		- Aufnahme der neuen KAG Inka Investment
+		- neue Templates für Inka, als Vorlage diente Societe General Spadirent
+
+
+## 29.02.2012 neue Templates
+
+	technische Hinweise
+		- Templates einspielen
+
+	fachliche Hinweise
+		- die Templates für BNP-Paribas (Orderausführung) wurde so angepasst, dass auf
+		  2-Seiten Breite alle Felder für einen evtl. Ausdruck lesbar sind. Alle Felder sind 
+		  Arial 10 voreingestellt, evtl. Grössenabweichungen im Ausdruck resultieren
+		  aus dem 2-seitigen Ausdruck (hier nimmt Excel dann automatisch Verkleinerungen vor)
+
+## 27.02.2012 MXLS-update, neues Template
+
+	technische Hinweise
+		- mxls-Dateien einspielen
+		- Template einspielen
+
+	fachliche Hinweise
+		- Ergänzung Tausenderpunkt bei Feld Quantity für HAIG-Securities
+
+## 21.12.2011 MXLS-update, neue BVI Templates für HAIG Anlagevorschlag
+
+	technische Hinweise
+		- MXLS-Dateien einspielen
+		- Templates einspielen
+
+	fachliche Hinweise
+		- bei HAIG werden ab sofort für Anlagevorschläge bei allen Fonds ein entsprechendes BVI-Excel erstellt
+		
+
+
+
+## 09.12.2011 MXLS-update, neues FX-Template für SocGen Proposal-Order
+
+	technische Hinweise
+		- MXLS-Dateien einspielen
+		- Template einspielen
+
+	fachliche Hinweise
+		- bei der Soc Gen hat sich das FX-BVI-Excel (Felder P, Q, R) geänder, daher für SocGen ein neues eigenes Template
+		
+
+
+## 05.12.2011 MXLS-update, 3 neue Templates
+
+technische Hinweise
+		- MXLS-Dateien einspielen
+		- Templates einspielen
+
+	fachliche Hinweise
+		- bei der Soc Gen hat sich die BVI-Excel-sheet-Bezeichnung geändert
+		- bei SocGen Securities wurden die Änderungen gem. Mail H.Höß vom 01.12.2011 umgesetzt
+
+
+
+## 11.10.2011 MXLS update, neue Templates
+
+	technische Hinweise
+		- MXLS-Dateien einspielen
+		- Template einspielen
+
+	fachliche Hinweise
+		- bei Helaba wird nun der neu gelieferte MIC-Code im AMS-Export in das Feld
+		  Trade Date dargestellt. Dabei wird ein leer geliefertes Feld, so wie Feldinhalt
+		  XKAG, mit XXXX umgewandelt
+	
+
+## 18.08.2011 MXLS-update, neue Templates
+
+	technische Hinweise
+		- MXLS-Dateien einspielen
+		- Template einspielen
+
+	fachliche Hinweise
+		- neue Templates für Helaba Outsourcing
+
+
+## 20.07.2011 MXLS-update, neue Templates
+
+	technische Hinweise
+		- MXLS-Dateien einspielen
+		- Template einspielen
+
+	fachliche Hinweise
+		- PRHS 0-Daten in Feld Trade Date auf BVI-Excel behoben, wenn Datenfeld in AMS-Export leer dann leer, ansonsten Datum
+		- Erweiterung LUX-HAIG Mandate um Execution
+
+
+## 18.07.2011 neue Templates
+
+	technische Hinweise
+		- Templates einspielen
+
+	fachliche Hinweise
+		- neue Templates für Metzler, alle Excels sollen Überschrift in Zeile 10 und ersten Datensatz in Zeile 11 beinhalten
+
+## 15.07.2011 MXLS-update neue Templates
+
+	technische Hinweise
+		- Templates einspielen
+		- MXLS-Dateien einspielen
+		- Releasenr.txt einspielen
+
+	fachliche Hinweise:
+		- Aufnahme der HAIG Mandate (HAIG UVV Select-FIS, H+A Lux Global Asset 1) als Advisory in die Aufbereitung der BVI-Excel
+
+## 11.05.2011 MXLS update, neues Template
+
+	technische Hinweise
+		- Template einspielen
+		- MXLS-Dateien einspielen
+
+	fachliche Hinweise:
+		- Anpassung der Spalten P, Q, R bei FX-Geschäften (bei mehreren Datenzeilen wurde der Zeileninhalt nicht weiterkopiert - behoben)
+
+## 28.03.2011 MXLS update, neue Templates
+
+	technischer Hinweise
+		- Templates einspielen
+		- aktuelles dictionary einspielen (bereits per 25.3.11 vorab geschehen)
+		- MXLS-Dateien einspielen
+
+	fachliche Hinweise
+		- bei Universal werden bei festverzinslichen Orders im Anlagevorschlag mit Börsenplatz ausserbörslich
+		  das Template ohne Börsenplatz geliefert, aber im Bemerkungsfeld zusätzlich eines Kommentars aus
+		  dem Comment-Feld aus AMS auch das Wort ausserbörslich geliefert.
+		- AmpegaGerlin als neue KAG ins dictionary aufgenommen, für Anlagevorschläge je ein Gerling-Template für
+		  Securities und Future&Option Orders umgesetzt.
+
+
+
+##  04.03.2011 MXLS update
+
+	technischer Hinweis
+		- MXLS-Dateien einspielen
+
+	fachlicher Hinweis
+		- Anpassung Template für Securities für SocGen Verarbeitung
+
+##  28.02.2011 update dictionary
+
+	Technischer Hinweis
+		- das beigefügte Tempplate ist unter X:\xxx\HAAM\Data\Solutions\job_AllocareInterface\Allocare_Depotbank\HAAM\Dictionaries
+		  abzulegen
+
+	Fachlicher Hinweis:
+		- Deka Fundmaster wurde in AMS umbenannt in Deka Investment => Änderung des Feldinhalts für das dictionary
+
+##  01.02.2011 MXLS-update
+
+	Technischer Hinweis
+		- MXLS update
+		- Templates wie unter 31.01.2011
+
+	Fachlicher Hinweis
+		- Änderung des Fondsnamens Mail H.Höß 01.02.2011
+
+##  31.01.2011 MXLS-update
+
+	Technischer Hinweis
+		- MXLS-update
+		- neue Templates
+
+	Fachlicher Hinweis
+		- neues Outsourcing-Mandat BayernInvest (Saar LB (Dividend)) eingefügt
+
+##  28.01.2011 Template update LBBW Securities
+
+	Technischer Hinweis
+		- neues Template 
+
+	Fachlicher Hinweis
+		- Anpassung LBBW Securities Template gem. Mailvorgabe H.Höß 27.01.2011
+
+
+##  26.01.2011 MXLS-update, aktualisiertes Template LBBW
+
+	Technischer Hinweis
+		- neues Template
+		- MXLS update
+
+	Fachlicher Hinweis:
+
+		- Anpassung ALV_LBBW-Securities Template an Vorgaben H.Höß vom 26.01.2011
+	
+
+##  17.01.2011 MXLS-update, neues Template
+
+	Technischer Hinweis
+		- neues Template
+		- MXLS update
+
+	Fachlicher Hinweis:
+
+		- Anpassung ALV_LBBW-Securities Template an Vorgaben H.Höß vom 14.1. bzw. 17.1.2011
+
+##  07.01.2011 MXLS-update, neue Templates
+
+	Technischer Hinweis:
+
+		- neues dictionary
+		- 4 neue Templates
+		- MXLS-update
+
+	Fachlicher Hinweis:
+
+		- die allgemeine Vorlage für noch nicht zugeordnete z.B. neue KAGen basiert nun auf
+		  Universal Execution-Template
+		- in der Allgemeinen Vorlage wird nun als Überschrift wenn es ein Anlagevorschlag ist = Anlagevorschlag
+		  bei Ausführung = Ausführungsinformationen als Text ausgewiesen
+		- bei Anlagevorschlag wird im Feld Trade_Date das valid-to-date ausgewiesen
+
+		- neu mit aufgenommen wurde die KAG LBBW für Anlagevorschläge
+		- die Templates für LBBW basieren auf den Vorlagen Universal
+
+##  21.12.2010 Template-update
+
+	Fachlicher Hinweis:
+
+		Erweiterung BVI-Excel-Template für H&A Global Macro um Commission, Fees, Tax, Interest und settlement amount
+
+
+##  07.12.2010 MXLS-update
+
+	Fachlicher Hinweis:
+
+		Erweiterung BVI-Template FX-Geschäfte Universal VAM Global Macro (Counterparty, Exchange Rate, Trade_Date, Trade_Time)
+		Anpassung BVI-Template Universal Futures für Stop Market
+		Erweiterung Forex Geschäfte Proposal um Spot Date
+
+##  15.10.2010 MXLS-update
+
+	Fachlicher Hinweis:
+
+		- Anpassung BVI-Template Universal VAM Global Macro und FO_HAIG
+
+##  14.10.2010 MXLS-update
+
+	Fachliche Hinweise:
+
+		- Umsetzung neue InputConfig für Sonder-Template VAM Global Macro
+		  bei F&O-Geschäften
+
+##  06.10.2010 Template-update und MXLS-update
+
+	Fachliche Hinweise:
+
+		- Umsetzung neuer Fonds SBLB bei BayernInvest (Outsourcing)
+
+
+##  29.09.2010 Template-update und MXLS-update
+
+	Fachliche Hinweise:
+
+		- Anpassung Chronos auf Outsourcing
+
+##  10.08.2010 Template-update und MXLS-update
+
+	Fachliche Hinweise
+
+		- Anpassung der Zeilennummern für Chronos
+
+##  29.07.2010  Template-update
+
+	Fachliche Hinweise
+
+		- BVI_Securitires_Univ die Spaltenbreite A, J, AB optimiert und um JP_Morgan Informationen erweitert
+
+##  23.07.2010  Template-update
+
+	Fachliche Hinweise
+
+		- ChronosFundMaster Template update wegen falscher Wertpapier-Art und Transaktionsart im BVI-Excel (Futures, Optionen und Wertpapiere)
+
+
+##  22.07.2010  Template-update
+
+	Fachliche Hinweise
+
+		- ALV-FO Template Spalte J11 und K11 getauscht
+
+##  15.07.2010  Template-update
+
+	Fachliche Hinweise
+
+		- ALV_FO Template um "Bloomberg" ergänzt
+
+##  07.07.2010  MXLS-update, Template-update
+
+	Fachliche Hinweise
+
+		- neu P06 für Zeitreihen, bis zur Angebotsannahme noch mit ignore (Zeile 64 Spalte A) in Input_ZEITR
+		- Template und P0_KundendatenFormatg_BVI erweitert um Market_Sector_Description für Universal (Futures&Options)
+
+##  01.07.2010  Template-update
+
+	Fachliche Hinweise:
+
+		- HAIG Templates Zeilenhöhe angepasst
+
+##  29.06.2010  Template-update
+
+	Fachliche Hinweise
+
+		- HAIG Template FO G in Wort Abwicklungsinformation ergänzt
+
+##  24.06.2010  Template-update
+
+	Fachliche Hinweise
+
+		- HAIG: Anpassung Securities, Future&Option Templates
+
+##  20.06.2010  MXLS-update
+
+	Fachliche Hinweise
+		- Universal I.W. bei Careful to limit
+		- HAIG: Fondsname umgestellt von H&A Global Macro Long Short auf H+A Global Macro Long Short
+		- HAIG Anpassung Template F&O auf 2-Seiten Breite für bessere Lesbarkeit und FX auf größere Schrift
+
+
+##  17.06.2010  MXLS-update
+
+	Fachliche Hinweise
+		- Template HAIG angepasst
+		- Saha ISIN angepasst
+		- Chronos - Transaktionsart angepasst
+
+
+##  19.04.2010  P0_update
+
+	Fachliche Hinweise
+		- Templates für Outsourcing Universal
+		- Templates HAIG Execution
+		- Limitart ergänzt, Trade Date bei Anlagevorschlägen mit Limit Gütligkeit versehen
+
+
+
+##  19.04.2010  neue Templates SAHA bei AllianzGI
+
+	Fachliche Hinweise
+		- 3 neue Templates für AllianzGI
+		- 1 Template als Ersatz (....DERIVATIVES...)
+		- neues dictionary
+		- Austausch Lasche P0_statem_BVI
+
+##  XXXXXX  Fullsetup Release 4.02
+	
+	Technische Hinweise
+		- GuI für den Admin
+		- BVI modul mischt im Testmode jetzt auch die Quelldaten bei
+
+	Fachliche Hinweise
+
+		Implementierung von
+		- Ratingbeladung P41 (Fitch, Standard&Poors, Moody's und Moody's-Emittenten)
+		- Branchenbeladung P42
+		- zusätzliche Identifierbeladung P 43
+		- BVI-Excel-sheeterstellung und Mailversand
+		- Musterportfolien-Beladung
+		- tägliche Veränderungen bestimmter Kontensaldi P11 (Deltabeladung)
+
+	        Parametrisierung des Businsess Process Managers
+
+	Technische Hinweise
+
+
+		
+
+##  21.08.2009 ###################################
+
+>>>>>> Alle benötigten Basistechnologien
+
+	+BusinessProcessManager 
+	+email deployment  
+	+xlsAttachements via
+		template gesteuerte-Befüllung
+
+>>>>>>> Variation Margin - Sheet
+	auf ersten DemoDaten fertig gestellt
